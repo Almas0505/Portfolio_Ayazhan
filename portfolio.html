@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аяжан Елдосқызы — Портфолио</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a4d2e;
+            --secondary: #d4a574;
+            --accent: #c17c4a;
+            --background: #faf8f5;
+            --text-dark: #2c2c2c;
+            --text-light: #666;
+            --cream: #f5f0e8;
+            --gold: #b8935f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d6a4f 100%);
+            color: white;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect fill="rgba(255,255,255,0.03)" width="50" height="50"/><rect fill="rgba(255,255,255,0.03)" x="50" y="50" width="50" height="50"/></svg>');
+            opacity: 0.4;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            animation: slideUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .hero .subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            letter-spacing: 1px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: slideDown 0.6s ease-out 0.3s both;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 25px 30px;
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 60%;
+        }
+
+        /* Sections */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        section:nth-child(even) {
+            background: var(--cream);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .about-text p:first-child {
+            font-size: 1.4rem;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .interests {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            border-left: 5px solid var(--secondary);
+        }
+
+        .interests h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .interests ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .interests li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1.15rem;
+            color: var(--text-light);
+            transition: transform 0.3s ease;
+        }
+
+        .interests li:hover {
+            transform: translateX(5px);
+        }
+
+        .interests li::before {
+            content: '◆';
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+            font-size: 0.8rem;
+        }
+
+        /* Education Section */
+        .education-card {
+            background: white;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            margin-top: 40px;
+            border-top: 5px solid var(--primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        }
+
+        .education-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .education-card .degree {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-card .details {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .achievement {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-left: 5px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            opacity: 0.1;
+            border-radius: 0 15px 0 100%;
+        }
+
+        .achievement:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-left-color: var(--primary);
+        }
+
+        .achievement .icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .achievement h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .achievement p {
+            font-size: 1.05rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            margin-top: 40px;
+        }
+
+        .skill-category {
+            margin-bottom: 50px;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .skill-tag {
+            background: linear-gradient(135deg, var(--cream), white);
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            border: 2px solid var(--secondary);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .skill-tag:hover {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d6a4f 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-top: 80px;
+        }
+
+        #contact h2 {
+            color: white;
+        }
+
+        #contact h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--secondary);
+        }
+
+        .contact-info {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .contact-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px 40px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-5px);
+        }
+
+        .contact-item .icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            font-size: 1rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .achievements-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav a {
+                padding: 15px 20px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Decorative Elements */
+        .section-decoration {
+            width: 100%;
+            height: 30px;
+            background: linear-gradient(90deg, transparent, var(--secondary), transparent);
+            opacity: 0.2;
+            margin: 60px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="hero">
+            <h1>Аяжан Елдосқызы</h1>
+            <p class="subtitle">Болашақ ағылшын тілі мұғалімі</p>
+            <p>Абай атындағы ҚазҰПУ университетінің 1 курс студенті. Білікті педагог болуды мақсат етемін.</p>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#about">Мен туралы</a></li>
+            <li><a href="#education">Білім</a></li>
+            <li><a href="#achievements">Жетістіктер</a></li>
+            <li><a href="#skills">Дағдылар</a></li>
+            <li><a href="#contact">Байланыс</a></li>
+        </ul>
+    </nav>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>Мен туралы</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Мен бірінші курс студентімін, ағылшын тілі мұғалімі мамандығында оқимын.</p>
+                <p>Шет тілдерін меңгеруге және педагогика саласын дамытуға қызығамын. Болашақта білікті ағылшын тілі мұғалімі болып, өз білімімді басқаларға жеткізуді мақсат етемін.</p>
+                <p>Білім беру саласындағы инновациялық әдістерді зерттеуге және оқушыларды шет тілдерін үйренуге ынталандыруға ұмтыламын.</p>
+            </div>
+            <div class="interests">
+                <h3>Қызығушылықтар</h3>
+                <ul>
+                    <li>Кітап оқу — сөздік қорымды кеңейтеді</li>
+                    <li>Шет тілдерін үйрену — жаңа мәдениеттерді тану</li>
+                    <li>Фильмдер көру — ой-өрісімді кеңейту</li>
+                    <li>Педагогикалық әдістемелер</li>
+                    <li>Мәдениетаралық коммуникация</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Білім</h2>
+        <div class="education-card">
+            <h3>Абай атындағы Қазақ ұлттық педагогикалық университеті</h3>
+            <div class="degree">Ағылшын тілі мұғалімі</div>
+            <div class="details">
+                <p><strong>Курс:</strong> 1 курс</p>
+                <p><strong>Оқу кезеңі:</strong> 2024 — қазіргі уақыт</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2>Жетістіктер</h2>
+        <div class="achievements-grid">
+            <div class="achievement">
+                <span class="icon">🏅</span>
+                <h3>Алтын белгі</h3>
+                <p>Мектепті алтын медальмен бітірдім</p>
+            </div>
+            <div class="achievement">
+                <span class="icon">🥇</span>
+                <h3>1 орын — «ХАНТАЛАПАЙ»</h3>
+                <p>Республикалық математикалық зияткерлік сайысы</p>
+            </div>
+            <div class="achievement">
+                <span class="icon">🥉</span>
+                <h3>3 орын — Ағылшын тілі</h3>
+                <p>Қалалық олимпиада</p>
+            </div>
+            <div class="achievement">
+                <span class="icon">🥉</span>
+                <h3>3 орын — British Bulldog</h3>
+                <p>Қалалық конкурс</p>
+            </div>
+            <div class="achievement">
+                <span class="icon">👑</span>
+                <h3>«Шаңырақтың шамшырағы»</h3>
+                <p>Облыстық «Инабатты ару» байқауы</p>
+            </div>
+            <div class="achievement">
+                <span class="icon">🔬</span>
+                <h3>Ғылыми жоба</h3>
+                <p>Мектеп ғылыми жобалар жарысының жүлдегері</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Дағдылар және қабілеттер</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Тілдер</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Қазақ тілі (ана тілі)</span>
+                    <span class="skill-tag">Орыс тілі (еркін)</span>
+                    <span class="skill-tag">Ағылшын тілі (үйренудемін)</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Білім саласы</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Педагогика</span>
+                    <span class="skill-tag">Әдістеме</span>
+                    <span class="skill-tag">Лингвистика</span>
+                    <span class="skill-tag">Мәдениетаралық коммуникация</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Дербес қасиеттер</h3>
+                <div class="skills-list">
+                    <span class="skill-tag">Жауапкершілік</span>
+                    <span class="skill-tag">Ұйымдастырушылық</span>
+                    <span class="skill-tag">Коммуникабельділік</span>
+                    <span class="skill-tag">Шығармашылық</span>
+                    <span class="skill-tag">Өзін-өзі дамыту</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Байланыс</h2>
+        <div class="contact-info">
+            <div class="contact-item">
+                <span class="icon">📧</span>
+                <a href="mailto:ayazhaneldoskyzy08@gmail.com">ayazhaneldoskyzy08@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <span class="icon">📱</span>
+                <a href="https://instagram.com/ayazhaneldoskyzy08" target="_blank">@ayazhaneldoskyzy08</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Аяжан Елдосқызы. Барлық құқықтар қорғалған.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll animation for navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.achievement, .education-card, .skill-category').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
